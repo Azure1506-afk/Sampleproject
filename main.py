@@ -39,7 +39,7 @@ with sl.sidebar:
     # About Section
     sl.markdown("## Description")
     sl.markdown("""
-        <div class="css-textbarboxtype">
+        <div class="css-textbarboxtype" style="color: #ABCDED;">
             An AI-powered chatbot designed to provide answers related to College Name.
         </div>
     """, unsafe_allow_html=True)
