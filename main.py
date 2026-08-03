@@ -1,5 +1,2 @@
-# Take the name as input
-name = input("Enter your name: ")
-
-# Print the name 
-print(f"Hello, {name}!")
+# Call the function to print username
+print_user_name()
