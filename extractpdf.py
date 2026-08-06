@@ -65,6 +65,18 @@ def main():
             
         print(f"Successfully loaded {len(documents)} documents")
 
+        # Split documents into chunks
+        print("Split documents into chunks...")
+        text_splitter = RecursiveCharacterTextSplitter(
+            chunk_size=2000,
+            chunk_overlap=500,
+            length_function=len,
+            separators=["\n\n", "\n", " ", ""]
+        )
+        print(f"Split documents into {len(text_chunks)} chunks")
+          
+        text_chunks = text_splitter.split_documents(documents)
+        print(f"Split documents into {len(text_chunks)} chunks:Completed!")
     except Exception as e:
         print(f"An error occurred: {str(e)}")
 
