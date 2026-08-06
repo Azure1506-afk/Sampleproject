@@ -52,11 +52,18 @@ def main():
     if not os.path.exists("vector_db_dir"):
         os.makedirs("vector_db_dir")
         print("Created 'vector_db_dir' directory for storing vectorized documents.")
-        
     try:
         # Load the embedding model
         print("Loading embedding model...")
         embeddings = HuggingFaceEmbeddings()
+        print("Loading and processing PDF documents...")
+        documents = process_pdfs("data")
+        
+        if not documents:
+            print("No documents were successfully processed. Please check your PDF files.")
+            return
+            
+        print(f"Successfully loaded {len(documents)} documents")
 
     except Exception as e:
         print(f"An error occurred: {str(e)}")
