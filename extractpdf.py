@@ -52,6 +52,7 @@ def main():
     if not os.path.exists("vector_db_dir"):
         os.makedirs("vector_db_dir")
         print("Created 'vector_db_dir' directory for storing vectorized documents.")
+
     try:
         # Load the embedding model
         print("Loading embedding model...")
@@ -73,9 +74,10 @@ def main():
             length_function=len,
             separators=["\n\n", "\n", " ", ""]
         )
-        print(f"Split documents into {len(text_chunks)} chunks")
           
         text_chunks = text_splitter.split_documents(documents)
+        print(f"Split documents into {len(text_chunks)} chunks")
+
         print(f"Split documents into {len(text_chunks)} chunks:Completed!")
     except Exception as e:
         print(f"An error occurred: {str(e)}")
